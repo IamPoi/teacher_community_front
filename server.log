@@ -1,0 +1,20 @@
+
+> teacher_community_front@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.3.4
+   - Local:        http://localhost:3000
+   - Network:      http://172.31.246.54:3000
+
+ ✓ Starting...
+ ⚠ Invalid next.config.js options detected: 
+ ⚠     Unrecognized key(s) in object: 'appDir' at "experimental"
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ ✓ Ready in 26.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.8s (671 modules)
+ HEAD / 200 in 9773ms
+ GET / 200 in 136ms
+ GET / 200 in 89ms
+ ⚠ Cross origin request detected from 172.31.246.54 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
