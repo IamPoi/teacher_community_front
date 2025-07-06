@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeacherHub - 로그인</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .logo {
+            color: #4a90e2;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .remember-me input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .forgot-password {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+        
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        .social-login {
+            margin-top: 30px;
+        }
+        
+        .social-login-title {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .social-login-title::before,
+        .social-login-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .social-login-title::before {
+            left: 0;
+        }
+        
+        .social-login-title::after {
+            right: 0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-button {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .social-button:hover {
+            border-color: #4a90e2;
+        }
+        
+        .signup-link {
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .signup-link a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">TeacherHub</div>
+        <p class="subtitle">중고등 교사 커뮤니티에 오신 것을 환영합니다</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+            </div>
+            
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <span>로그인 상태 유지</span>
+                </label>
+                <a href="#" class="forgot-password">비밀번호 찾기</a>
+            </div>
+            
+            <button type="submit" class="login-button">로그인</button>
+            
+            <div class="error-message" id="errorMessage">
+                이메일 또는 비밀번호가 올바르지 않습니다.
+            </div>
+        </form>
+        
+        <div class="social-login">
+            <div class="social-login-title">또는</div>
+            <div class="social-buttons">
+                <button class="social-button" onclick="googleLogin()">
+                    🔍 Google
+                </button>
+                <button class="social-button" onclick="kakaoLogin()">
+                    💬 Kakao
+                </button>
+            </div>
+        </div>
+        
+        <div class="signup-link">
+            아직 계정이 없으신가요? <a href="#" onclick="goToSignup()">회원가입</a>
+        </div>
+    </div>
+    
+    <script>
+        // API 주소 설정
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:8080' 
+            : 'https://your-cloudtype-backend.run.goorm.io'; // CloudType 백엔드 주소로 변경하세요
+        
+        // 로그인 폼 제출
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // 에러 메시지 숨기기
+            errorMessage.style.display = 'none';
+            
+            try {
+                const response = await fetch(`${API_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                        remember: remember
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // 로그인 성공
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // 메인 페이지로 이동
+                    window.location.href = 'index.html';
+                } else {
+                    // 로그인 실패
+                    errorMessage.textContent = data.message || '로그인에 실패했습니다.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('로그인 오류:', error);
+                errorMessage.textContent = '서버 연결에 문제가 발생했습니다.';
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        // Google 로그인
+        function googleLogin() {
+            // Google OAuth 연동 구현
+            alert('Google 로그인 기능은 준비 중입니다.');
+        }
+        
+        // Kakao 로그인
+        function kakaoLogin() {
+            // Kakao OAuth 연동 구현
+            alert('Kakao 로그인 기능은 준비 중입니다.');
+        }
+        
+        // 회원가입 페이지로 이동
+        function goToSignup() {
+            // 회원가입 페이지로 이동
+            alert('회원가입 페이지는 준비 중입니다.');
+        }
+        
+        // 페이지 로드 시 이미 로그인된 사용자 확인
+        window.addEventListener('load', function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                // 이미 로그인된 경우 메인 페이지로 리다이렉트
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
